@@ -18,11 +18,11 @@ if [ $# -ne 1 ]; then
 fi
 
 sculpin generate --env=prod
-
+cp -R components/ output_prod/components/
 git stash
 git checkout gh-pages
 
-cp -R components/
+
 cp -R output_prod/* .
 rm -rf output_*
 
