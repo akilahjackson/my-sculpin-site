@@ -13,7 +13,7 @@
 if [ $? -ne 0 ]; then echo "Could not publish the site"; exit 1; fi
 
 if [ $# -ne 1 ]; then
-    echo "usage: ./publish.sh \"commit message\""
+    echo "usage: ./publish.sh \"add a commit message\""
     exit 1;
 fi
 
@@ -22,6 +22,7 @@ sculpin generate --env=prod
 git stash
 git checkout gh-pages
 
+cp -R components/
 cp -R output_prod/* .
 rm -rf output_*
 
